@@ -3,7 +3,7 @@ const asyncHandler = (fn) => {
         Promise.resolve(fn).catch((err) => next(err))
     }
 }
-
+                         
 export default asyncHandler
 
 
