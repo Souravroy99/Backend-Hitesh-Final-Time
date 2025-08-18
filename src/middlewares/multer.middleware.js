@@ -9,6 +9,6 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + '-' + file.originalname); // unique file name
   }
 });
-
+ 
 // Create multer upload middleware
 export const upload = multer({ storage: storage });

@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema(
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Video",
             }
-        ],
+        ], 
         password: {
             type: String,
             required: [true, "Password is required"],
@@ -52,7 +52,7 @@ const userSchema = new mongoose.Schema(
 // Don't use arrow function, as we need 'this' for taking reference
 userSchema.pre("save", async function(next) { 
     if(this.isModified("password")) {
-        this.password = bcrypt.hash(this.password, 10)
+        this.password = await bcrypt.hash(this.password, 10)
     }
 
     next()
